@@ -1,6 +1,7 @@
-
+package model;
 
 import java.util.UUID;
+import java.util.ArrayList;
 
 /**
  * @author guilherme
@@ -10,8 +11,8 @@ public class Professor {
     private UUID identificacaoProf;
     private int matriculaProfessor;
     private String nomeProfessor;
-    //private Curso[] cursos;
-
+  
+    
     public Professor() {
 		
     }
@@ -43,9 +44,7 @@ public class Professor {
         this.nomeProfessor = nomeProfessor;
     }
     
-    public void addDispsciplina() {
-        
-    }
+   
 
     @Override
     public String toString() {
