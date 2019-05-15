@@ -4,7 +4,7 @@ import java.util.UUID;
 
 public class Curso{
 
-    
+//Novo    
 private int CodigoCurso;
 private int totalCredito;
 
@@ -28,7 +28,7 @@ int visualizarCreditosCurso(){
     return -1;
 }
 
-
+void adicionarCurso(){}
 
 
     public String getNomeCurso() {

@@ -1,4 +1,4 @@
-package projetounit;
+
 
 import java.util.UUID;
 
@@ -21,15 +21,10 @@ public class Professor {
         this.identificacaoProf = UUID.randomUUID();
         this.setNomeProfessor(nomeProfessor);
         this.setMatriculaProfessor(matriculaProfessor);
-        this.setIdentificacaoProf(identificacaoProf);
     }
 
     public UUID getIdentificacaoProf() {
         return identificacaoProf;
-    }
-
-    public void setIdentificacaoProf(UUID identificacaoProf) {
-        this.identificacaoProf = identificacaoProf;
     }
 
     public int getMatriculaProfessor() {
@@ -46,6 +41,10 @@ public class Professor {
 
     public void setNomeProfessor(String nomeProfessor) {
         this.nomeProfessor = nomeProfessor;
+    }
+    
+    public void addDispsciplina() {
+        
     }
 
     @Override
