@@ -12,7 +12,7 @@ private String NomeCurso;
 
 //Objetos
 Professor prof = new Professor();
-Alunos alunos = new Alunos();
+//Alunos alunos = new Alunos();
 
 
 //Matriz matriz = new Matriz(0);
