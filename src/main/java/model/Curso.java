@@ -2,12 +2,33 @@ package model;
 
 import java.util.UUID;
 
-public class Curso {
+public class Curso{
 
-int CodigoCurso;
+    
+private int CodigoCurso;
+private int totalCredito;
+
 private String NomeCurso;
 
-String profID = UUID.randomUUID().toString();
+//Objetos
+Professor prof = new Professor();
+Alunos alunos = new Alunos();
+
+
+//Matriz matriz = new Matriz(0);
+
+String profID;
+
+public Curso(){
+    
+}
+
+int visualizarCreditosCurso(){
+   
+    return -1;
+}
+
+
 
 
     public String getNomeCurso() {
@@ -16,5 +37,33 @@ String profID = UUID.randomUUID().toString();
 
     public void setNomeCurso(String nomeCurso) {
         NomeCurso = nomeCurso;
+    }
+
+    /**
+     * @return the CodigoCurso
+     */
+    public int getCodigoCurso() {
+        return CodigoCurso;
+    }
+
+    /**
+     * @param CodigoCurso the CodigoCurso to set
+     */
+    public void setCodigoCurso(int CodigoCurso) {
+        this.CodigoCurso = CodigoCurso;
+    }
+
+    /**
+     * @return the totalCredito
+     */
+    public int getTotalCredito() {
+        return totalCredito;
+    }
+
+    /**
+     * @param totalCredito the totalCredito to set
+     */
+    public void setTotalCredito(int totalCredito) {
+        this.totalCredito = totalCredito;
     }
 }
