@@ -11,7 +11,7 @@ private String NomeCurso;
 
 //Objetos
 Professor prof = new Professor();
-Alunos alunos = new Alunos();
+//Alunos alunos = new Alunos();
 
 //Id curso
 String IdCUr;
