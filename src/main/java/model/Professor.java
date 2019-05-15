@@ -11,6 +11,7 @@ public class Professor {
     private UUID identificacaoProf;
     private int matriculaProfessor;
     private String nomeProfessor;
+    ArrayList ListaProfessor;
   
     
     public Professor() {
@@ -44,7 +45,10 @@ public class Professor {
         this.nomeProfessor = nomeProfessor;
     }
     
-   
+    public void AdicionarProfessorLista() {
+        ListaProfessor = new ArrayList();
+        ListaProfessor.add(this.getNomeProfessor());
+    }
 
     @Override
     public String toString() {
