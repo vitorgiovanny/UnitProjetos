@@ -11,7 +11,7 @@ public class Professor {
     private UUID identificacaoProf;
     private int matriculaProfessor;
     private String nomeProfessor;
-    ArrayList ListaProfessor;
+    ArrayList<String> ListaProfessor;
   
     
     public Professor() {
@@ -46,8 +46,14 @@ public class Professor {
     }
     
     public void AdicionarProfessorLista() {
-        ListaProfessor = new ArrayList();
-        ListaProfessor.add(this.getNomeProfessor());
+        this.ListaProfessor = new ArrayList<String>();
+        this.ListaProfessor.add(this.getNomeProfessor());
+    }
+    
+    public void Listar() {
+        for (int i = 0; i < this.ListaProfessor.size(); i++) {
+            System.out.print(this.ListaProfessor.get(i) + " ");
+        }
     }
 
     @Override
