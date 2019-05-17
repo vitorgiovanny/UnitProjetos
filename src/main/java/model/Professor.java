@@ -2,6 +2,7 @@ package model;
 
 import java.util.UUID;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * @author guilherme
@@ -12,15 +13,15 @@ public class Professor {
     private int matriculaProfessor;
     private String nomeProfessor;
     ArrayList<String> ListaProfessor = new ArrayList();
-  
+    //ArrayList<Curso> cursos;
     
     public Professor() {
-		
+        this.identificacaoProf = UUID.randomUUID();
     }
 
     public Professor(String nomeProfessor, int matriculaProfessor) {
         this();
-        this.identificacaoProf = UUID.randomUUID();
+        //this.identificacaoProf = UUID.randomUUID();
         this.setNomeProfessor(nomeProfessor);
         this.setMatriculaProfessor(matriculaProfessor);
         this.AdicionarProfessorLista();
@@ -48,19 +49,18 @@ public class Professor {
     
     public void AdicionarProfessorLista() {
         this.ListaProfessor.add(this.getNomeProfessor());
+        
     }
     
     public void Listar() {
-        for (int i = 0; i < this.ListaProfessor.size(); i++) {
-            System.out.print(this.ListaProfessor.get(i) + " ");
-        }
+        System.out.println(Arrays.toString(ListaProfessor.toArray()));
     }
 
     @Override
     public String toString() {
         return "{Nome: " + this.getNomeProfessor()
                 + ", Matricula: " + this.getMatriculaProfessor()
-                + ", ID professor: " + this.getIdentificacaoProf() + "}";
+                + "}";
     }
     
 }
