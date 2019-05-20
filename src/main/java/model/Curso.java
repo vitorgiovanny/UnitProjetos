@@ -1,24 +1,24 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
 public class Curso{
 
 //Getters e Setters  
-private int CodigoCurso;
+private UUID CodigoCurso;
 private int totalCredito;
 private String NomeCurso;
 
+//ArrayList
+ArrayList Curso = new ArrayList();
+
 //Objetos
 Professor prof = new Professor();
-//Alunos alunos = new Alunos();
-
-//Id curso
-String IdCUr;
 
 //Teste
 public Curso(){
-    
+    this.CodigoCurso = UUID.randomUUID();
 }
 
 
@@ -27,13 +27,19 @@ int visualizarCreditosCurso(){
 }
 
 
-String listarProfessorCurso(){
-    return null;
+ArrayList listarProfessorCurso(){
+    ArrayList nomesProfessores = new ArrayList();
+    nomesProfessores.add(prof.getNomeProfessor());
+    return nomesProfessores;
 }
 
-void adicionarCurso(){}
+void adicionarCurso(String Ncurso){
+    this.setNomeCurso(Ncurso);
+    Curso.add(this.getNomeCurso());
+}
 
 String ListarCurso(){
+    
     return null;
 }
 
@@ -50,13 +56,7 @@ String ListarCurso(){
         NomeCurso = nomeCurso;
     }
 
-    public int getCodigoCurso() {
-        return CodigoCurso;
-    }
 
-    public void setCodigoCurso(int CodigoCurso) {
-        this.CodigoCurso = CodigoCurso;
-    }
 
     public int getTotalCredito() {
         return totalCredito;
@@ -64,5 +64,14 @@ String ListarCurso(){
 
     public void setTotalCredito(int totalCredito) {
         this.totalCredito = totalCredito;
+    }
+
+    public UUID getCodigoCurso() {
+        return CodigoCurso;
+    }
+
+
+    public void setCodigoCurso(UUID CodigoCurso) {
+        this.CodigoCurso = CodigoCurso;
     }
 }
