@@ -4,16 +4,15 @@ import java.util.UUID;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-/**
- * @author guilherme
- */
 
 public class Professor {
     private UUID identificacaoProf;
     private int matriculaProfessor;
     private String nomeProfessor;
-    ArrayList<String> ListaProfessor = new ArrayList();
-    //ArrayList<Curso> cursos;
+    //ArrayList<String> ListaProfessor = new ArrayList();
+    private ArrayList<String> cursosProfessor = new ArrayList<>();
+    
+    //Curso novo = new Curso();
     
     public Professor() {
         this.identificacaoProf = UUID.randomUUID();
@@ -21,7 +20,6 @@ public class Professor {
 
     public Professor(String nomeProfessor, int matriculaProfessor) {
         this();
-        //this.identificacaoProf = UUID.randomUUID();
         this.setNomeProfessor(nomeProfessor);
         this.setMatriculaProfessor(matriculaProfessor);
         this.AdicionarProfessorLista();
@@ -47,13 +45,25 @@ public class Professor {
         this.nomeProfessor = nomeProfessor;
     }
     
-    public void AdicionarProfessorLista() {
-        this.ListaProfessor.add(this.getNomeProfessor());
-        
+    public ArrayList<String> getCursosProfessor() {
+        return cursosProfessor;
+    }
+
+    public void setCursosProfessor(ArrayList<String> cursosProfessor) {
+        this.cursosProfessor = cursosProfessor;
     }
     
-    public void Listar() {
-        System.out.println(Arrays.toString(ListaProfessor.toArray()));
+    public void AdicionarProfessorLista() {
+        //this.ListaProfessor.add(this.getNomeProfessor());
+    }
+    
+    
+    public void adicionarCurso(String nomedoCurso) {
+        this.cursosProfessor.add(nomedoCurso);
+    }
+    
+    public void ListarCursoProfessor() {
+        System.out.println(Arrays.toString(this.cursosProfessor.toArray()));
     }
 
     @Override
