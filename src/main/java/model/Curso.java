@@ -1,14 +1,20 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.UUID;
 
 public class Curso{
 
-//Getters e Setters  
+//Atributos
 private UUID CodigoCurso;
 private int totalCredito;
 private String NomeCurso;
+
+public int creditos;
+    
+//SorteioNumero
+Random ran = new Random();
 
 //ArrayList
 private ArrayList<String> Cursos = new ArrayList<String>();
@@ -18,6 +24,7 @@ Professor prof = new Professor();
 
 //Construtores
 public Curso(){
+    this.creditos = ran.nextInt(4);
     this.CodigoCurso = UUID.randomUUID();
 }
 
@@ -34,15 +41,16 @@ ArrayList listarProfessorCurso(){
 }
 
 void adicionarCurso(String Ncurso){
+
     this.setNomeCurso(Ncurso);
-        getCursos().add(this.getNomeCurso());
+    this.setTotalCredito(this.creditos);
+        this.Cursos.add(this.getNomeCurso());
 }
 
 ArrayList<String> ListarCurso(){
     for(String s : getCursos()){
         System.out.println(s);
     }
-   
     return this.getCursos();
 }
 
@@ -91,4 +99,5 @@ ArrayList<String> ListarCurso(){
     public void setCursos(ArrayList<String> Cursos) {
         this.Cursos = Cursos;
     }
+
 }
