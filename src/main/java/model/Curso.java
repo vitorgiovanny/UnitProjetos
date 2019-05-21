@@ -55,8 +55,6 @@ ArrayList<String> ListarCurso(){
 }
 
 
-
-
 //Getters and Setters
 
     public String getNomeCurso() {
@@ -86,16 +84,12 @@ ArrayList<String> ListarCurso(){
         this.CodigoCurso = CodigoCurso;
     }
 
-    /**
-     * @return the Cursos
-     */
+
     public ArrayList<String> getCursos() {
         return Cursos;
     }
 
-    /**
-     * @param Cursos the Cursos to set
-     */
+
     public void setCursos(ArrayList<String> Cursos) {
         this.Cursos = Cursos;
     }
