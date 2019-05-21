@@ -11,12 +11,12 @@ private int totalCredito;
 private String NomeCurso;
 
 //ArrayList
-ArrayList Curso = new ArrayList();
+private ArrayList<String> Cursos = new ArrayList<String>();
 
 //Objetos
 Professor prof = new Professor();
 
-//Teste
+//Construtores
 public Curso(){
     this.CodigoCurso = UUID.randomUUID();
 }
@@ -35,12 +35,15 @@ ArrayList listarProfessorCurso(){
 
 void adicionarCurso(String Ncurso){
     this.setNomeCurso(Ncurso);
-    Curso.add(this.getNomeCurso());
+        getCursos().add(this.getNomeCurso());
 }
 
-String ListarCurso(){
-    
-    return null;
+ArrayList<String> ListarCurso(){
+    for(String s : getCursos()){
+        System.out.println(s);
+    }
+   
+    return this.getCursos();
 }
 
 
@@ -73,5 +76,19 @@ String ListarCurso(){
 
     public void setCodigoCurso(UUID CodigoCurso) {
         this.CodigoCurso = CodigoCurso;
+    }
+
+    /**
+     * @return the Cursos
+     */
+    public ArrayList<String> getCursos() {
+        return Cursos;
+    }
+
+    /**
+     * @param Cursos the Cursos to set
+     */
+    public void setCursos(ArrayList<String> Cursos) {
+        this.Cursos = Cursos;
     }
 }
