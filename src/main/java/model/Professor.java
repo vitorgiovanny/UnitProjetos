@@ -9,7 +9,6 @@ public class Professor {
     private UUID identificacaoProf;
     private int matriculaProfessor;
     private String nomeProfessor;
-    //ArrayList<String> ListaProfessor = new ArrayList();
     private ArrayList<String> cursosProfessor = new ArrayList<>();
     
     //Curso novo = new Curso();
@@ -22,7 +21,6 @@ public class Professor {
         this();
         this.setNomeProfessor(nomeProfessor);
         this.setMatriculaProfessor(matriculaProfessor);
-        this.AdicionarProfessorLista();
     }
 
     public UUID getIdentificacaoProf() {
@@ -51,10 +49,6 @@ public class Professor {
 
     public void setCursosProfessor(ArrayList<String> cursosProfessor) {
         this.cursosProfessor = cursosProfessor;
-    }
-    
-    public void AdicionarProfessorLista() {
-        //this.ListaProfessor.add(this.getNomeProfessor());
     }
     
     
