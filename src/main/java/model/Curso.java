@@ -11,18 +11,16 @@ private UUID CodigoCurso;
 private int totalCredito;
 private String NomeCurso;
 
-public int creditos;
-    
-
 //ArrayList
 private ArrayList<Curso> Cursos = new ArrayList<Curso>();
 
 //Objetos
-Professor prof = new Professor();
+Professor prof ;
 
 //Construtores
 public Curso(){
     this.CodigoCurso = UUID.randomUUID();
+    prof = new Professor();
 }
 
 
@@ -32,16 +30,13 @@ int visualizarCreditosCurso(){
 }
 
 
-ArrayList listarProfessorCurso(){
-    ArrayList nomesProfessores = new ArrayList();
-    nomesProfessores.add(prof.getNomeProfessor());
-    return nomesProfessores;
+public String listarProfessorCurso(){
+    return prof.getNomeProfessor();
 }
 
-void adicionarCurso(String Ncurso){
-
+public void adicionarCurso(String Ncurso){
     this.setNomeCurso(Ncurso);
-    this.setTotalCredito(this.creditos);
+    
 }
 
 ArrayList<Curso> ListarCurso(){
@@ -77,9 +72,6 @@ ArrayList<Curso> ListarCurso(){
     }
 
 
-    public void setCodigoCurso(UUID CodigoCurso) {
-        this.CodigoCurso = CodigoCurso;
-    }
 
 
     public ArrayList<Curso> getCursos() {
