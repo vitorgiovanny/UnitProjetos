@@ -18,7 +18,7 @@ public int creditos;
 private ArrayList<Curso> Cursos = new ArrayList<Curso>();
 
 //Objetos
-Professor prof = new Professor();
+//Professor prof = new Professor();
 
 //Construtores
 public Curso(){
@@ -34,7 +34,7 @@ int visualizarCreditosCurso(){
 
 ArrayList listarProfessorCurso(){
     ArrayList nomesProfessores = new ArrayList();
-    nomesProfessores.add(prof.getNomeProfessor());
+    //nomesProfessores.add(prof.getNomeProfessor());
     return nomesProfessores;
 }
 
