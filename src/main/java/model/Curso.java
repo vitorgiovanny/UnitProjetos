@@ -13,8 +13,6 @@ private String NomeCurso;
 
 public int creditos;
     
-//SorteioNumero
-Random ran = new Random();
 
 //ArrayList
 private ArrayList<Curso> Cursos = new ArrayList<Curso>();
@@ -24,7 +22,6 @@ Professor prof = new Professor();
 
 //Construtores
 public Curso(){
-    this.creditos = ran.nextInt(4);
     this.CodigoCurso = UUID.randomUUID();
 }
 
