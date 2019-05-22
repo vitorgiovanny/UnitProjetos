@@ -2,37 +2,25 @@ package model;
 
 import java.util.UUID;
 import java.util.ArrayList;
-import java.util.Arrays;
-
 
 public class Professor {
+
     private UUID identificacaoProf;
-    private int matriculaProfessor;
     private String nomeProfessor;
-    private ArrayList<String> cursosProfessor = new ArrayList<>();
-    
-    //Curso novo = new Curso();
-    
+    private ArrayList<Curso> cursosProfessor;
+
     public Professor() {
         this.identificacaoProf = UUID.randomUUID();
+        this.cursosProfessor = new ArrayList<Curso>();
     }
 
-    public Professor(String nomeProfessor, int matriculaProfessor) {
+    public Professor(String nomeProfessor) {
         this();
-        this.setNomeProfessor(nomeProfessor);
-        this.setMatriculaProfessor(matriculaProfessor);
+        this.nomeProfessor = nomeProfessor;
     }
 
     public UUID getIdentificacaoProf() {
         return identificacaoProf;
-    }
-
-    public int getMatriculaProfessor() {
-        return matriculaProfessor;
-    }
-
-    public void setMatriculaProfessor(int matriculaProfessor) {
-        this.matriculaProfessor = matriculaProfessor;
     }
 
     public String getNomeProfessor() {
@@ -42,29 +30,13 @@ public class Professor {
     public void setNomeProfessor(String nomeProfessor) {
         this.nomeProfessor = nomeProfessor;
     }
-    
-    public ArrayList<String> getCursosProfessor() {
-        return cursosProfessor;
+
+    public ArrayList<Curso> getCursosProfessor() {
+        return this.cursosProfessor;
     }
 
-    public void setCursosProfessor(ArrayList<String> cursosProfessor) {
-        this.cursosProfessor = cursosProfessor;
-    }
-    
-    
-    public void adicionarCurso(String nomedoCurso) {
-        this.cursosProfessor.add(nomedoCurso);
-    }
-    
-    public void ListarCursoProfessor() {
-        System.out.println(Arrays.toString(this.cursosProfessor.toArray()));
+    public void addCursoProfessor(Curso curso) {
+        this.cursosProfessor.add(curso);
     }
 
-    @Override
-    public String toString() {
-        return "{Nome: " + this.getNomeProfessor()
-                + ", Matricula: " + this.getMatriculaProfessor()
-                + "}";
-    }
-    
 }

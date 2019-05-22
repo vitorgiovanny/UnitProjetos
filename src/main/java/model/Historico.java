@@ -1,24 +1,18 @@
+package model;
 
-package javaapplication58;
-
+import java.util.ArrayList;
 
 public class Historico {
+
     private int ano;
     private int semestre;
-    //private Matricula matriculaAluno;
     private String situacao;
     private double media;
     private int faltas;
-    
-    
-    public void verificarSituacaoAluno(){
-        
-    }
-    public void verificarMedia(){
-        
-    }
-    public void verificarFaltas(){
-        
+    private final ArrayList<Matricula> matriculasAluno;
+
+    public Historico() {
+        this.matriculasAluno = new ArrayList<Matricula>();
     }
 
     public int getAno() {
@@ -60,5 +54,12 @@ public class Historico {
     public void setFaltas(int faltas) {
         this.faltas = faltas;
     }
-    
- }
+
+    public ArrayList<Matricula> getMatriculasAluno() {
+        return matriculasAluno;
+    }
+
+    public void addMatriculaAluno(Matricula matricula) {
+        this.matriculasAluno.add(matricula);
+    }
+}

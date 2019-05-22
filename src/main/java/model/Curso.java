@@ -1,40 +1,34 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Random;
 import java.util.UUID;
 
-public class Curso{
+public class Curso {
 
-//Atributos
-private UUID CodigoCurso;
-private final int totalCredito;
-private String NomeCurso;
+    //Atributos
+    private final UUID codigoCurso;
+    private String NomeCurso;
+    private final int totalCredito;
 
-//ArrayList
-private ArrayList<Matriz> matrizes;
-private ArrayList<Professor> prof;
+    //ArrayList
+    private final ArrayList<Aluno> alunos;
+    private final ArrayList<Matriz> matrizes;
+    private final ArrayList<Professor> professores;
 
+    //Construtores
+    public Curso() {
+        this.totalCredito = 27;
+        this.codigoCurso = UUID.randomUUID();
+        this.alunos = new ArrayList<Aluno>();
+        this.matrizes = new ArrayList<Matriz>();
+        this.professores = new ArrayList<Professor>();
+    }
 
-//Construtores
-public Curso(){
-    matrizes = new ArrayList<>();
-    prof = new ArrayList<>();
-    
-    this.totalCredito = 27;
-    this.CodigoCurso = UUID.randomUUID();
-}
-
-int visualizarCreditosCurso(){
-    return this.getTotalCredito();
-}
-
-//////////////////GETTERS AND SETTERS///////////////////////////
-
+    //////////////////GETTERS AND SETTERS///////////////////////////
     public String getNomeCurso() {
         return NomeCurso;
     }
-    
+
     public void setNomeCurso(String nomeCurso) {
         NomeCurso = nomeCurso;
     }
@@ -44,22 +38,30 @@ int visualizarCreditosCurso(){
     }
 
     public UUID getCodigoCurso() {
-        return CodigoCurso;
+        return codigoCurso;
     }
 
-    public void addMatriz(Matriz matrizes) {
-        this.getMatrizes().add(matrizes);
+    public void addMatriz(Matriz matriz) {
+        this.getMatrizes().add(matriz);
     }
 
     public ArrayList<Matriz> getMatrizes() {
         return matrizes;
     }
 
-    public ArrayList<Professor> getProf() {
-        return prof;
+    public ArrayList<Professor> getProfessores() {
+        return professores;
     }
 
-    public void addProf(Professor prof) {
-        this.getProf().add(prof);
+    public void addProfessor(Professor professor) {
+        this.professores.add(professor);
+    }
+
+    public ArrayList<Aluno> getAlunos() {
+        return alunos;
+    }
+
+    public void addAluno(Aluno aluno) {
+        this.alunos.add(aluno);
     }
 }

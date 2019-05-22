@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Disciplina {
 
     private int codigoDisciplina;
@@ -8,17 +10,19 @@ public class Disciplina {
     private char tipoDisciplina;
     private int horasObrigatorias;
     private int limiteFaltas;
-    // private ArrayList<Matricula> matriculas;
-    // private ArrayList<Historico> historicos;
-    // private Matriz matriz;
-    // private ArrayList<Turma> turmas;
+    private Professor professor;
+    private ArrayList<Historico> historicos;
+    private Matriz matriz;
+    private ArrayList<Matricula> matriculas;
+    private ArrayList<Turma> turmas;
 
     public Disciplina() {
-        // this.matriculas = new ArrayList<>();
-        // this.historicos = new ArrayList<>();
-        // this.turmas = new ArrayList<>();
+        this.historicos = new ArrayList<Historico>();
+        this.professor = new Professor();
+        this.matriculas = new ArrayList<Matricula>();
+        this.turmas = new ArrayList<Turma>();
     }
-    
+
     public Disciplina(int codigoDisciplina) {
         this();
         this.codigoDisciplina = codigoDisciplina;
@@ -71,4 +75,45 @@ public class Disciplina {
     public void setLimiteFaltas(int limiteFaltas) {
         this.limiteFaltas = limiteFaltas;
     }
+
+    public Professor getProfessor() {
+        return professor;
+    }
+
+    public void setProfessor(Professor professor) {
+        this.professor = professor;
+    }
+
+    public ArrayList<Historico> getHistoricos() {
+        return historicos;
+    }
+
+    public void addHistorico(Historico historico) {
+        this.historicos.add(historico);
+    }
+
+    public Matriz getMatriz() {
+        return matriz;
+    }
+
+    public void setMatriz(Matriz matriz) {
+        this.matriz = matriz;
+    }
+
+    public ArrayList<Matricula> getMatriculas() {
+        return matriculas;
+    }
+
+    public void addMatricula(Matricula matricula) {
+        this.matriculas.add(matricula);
+    }
+
+    public ArrayList<Turma> getTurmas() {
+        return turmas;
+    }
+
+    public void addTurma(Turma turma) {
+        this.turmas.add(turma);
+    }
+
 }

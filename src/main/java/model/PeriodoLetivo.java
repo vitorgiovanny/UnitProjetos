@@ -1,4 +1,6 @@
-package SistemaDeMatricula;
+package model;
+
+import java.util.ArrayList;
 
 public class PeriodoLetivo {
 
@@ -7,36 +9,59 @@ public class PeriodoLetivo {
     private int semestre;
     private String dataInicial;
     private String dataFinal;
-    private Turma turmas;
-    private Matricula matriculas;
-    private Historico historicos;
+    private final ArrayList<Turma> turmas;
+    private final ArrayList<Matricula> matriculas;
+    private final ArrayList<Historico> historicos;
+
+    public PeriodoLetivo() {
+        this.turmas = new ArrayList<Turma>();
+        this.matriculas = new ArrayList<Matricula>();
+        this.historicos = new ArrayList<Historico>();
+    }
 
     //Metodos
-    public String addDataInicio(String data) {
-        return this.dataInicial = data;
+    public void addTurma(Turma turma) {
+        this.turmas.add(turma);
     }
 
-    public String addDataFinal(String data) {
-        return this.dataFinal = data;
+    public void addMatricula(Matricula matricula) {
+        this.matriculas.add(matricula);
     }
 
-    public String verDataInical() {
-        return this.dataInicial;
+    public void addHistorico(Historico historico) {
+        this.historicos.add(historico);
     }
 
-    public String verDataFinal() {
-        return this.dataFinal;
+    public int getAno() {
+        return ano;
     }
 
-    public void addTurma() {
-
+    public void setAno(int ano) {
+        this.ano = ano;
     }
 
-    public void addMatricula() {
-
+    public int getSemestre() {
+        return semestre;
     }
 
-    public void addHistorico() {
-
+    public void setSemestre(int semestre) {
+        this.semestre = semestre;
     }
+
+    public String getDataInicial() {
+        return dataInicial;
+    }
+
+    public void setDataInicial(String dataInicial) {
+        this.dataInicial = dataInicial;
+    }
+
+    public String getDataFinal() {
+        return dataFinal;
+    }
+
+    public void setDataFinal(String dataFinal) {
+        this.dataFinal = dataFinal;
+    }
+
 }
