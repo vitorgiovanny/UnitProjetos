@@ -1,14 +1,36 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
-/**
- *
- * @author 1172157747
- */
+import java.util.ArrayList;
+
 public class Matriz {
+
+    ArrayList<Disciplina> disciplinas;
+    Curso cursos;
+    PeriodoLetivo periodoLetivo;
     
+    public Matriz() {
+        disciplinas = new ArrayList<>();
+        cursos = new Curso();
+        periodoLetivo = new PeriodoLetivo();
+    }
+
+    public void addDisciplina(Disciplina disc){
+        disciplinas.add(disc);
+    }
+    public void removerDisciplina(Disciplina disc){
+        disciplinas.remove(disc);
+    }
+    
+    public ArrayList<Disciplina> getDisciplinas() {
+        return disciplinas;
+    }
+
+    public Curso getCursos() {
+        return cursos;
+    }
+
+    public PeriodoLetivo getPeriodo() {
+        return periodoLetivo;
+    }
+
 }
