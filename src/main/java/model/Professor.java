@@ -10,18 +10,15 @@ public class Professor {
     private int matriculaProfessor;
     private String nomeProfessor;
     private ArrayList<String> cursosProfessor = new ArrayList<>();
+    private ArrayList<String> professorEcurso = new ArrayList<>();
     
-    //Curso novo = new Curso();
+    Curso novoCurso = new Curso();
     
     public Professor() {
         this.identificacaoProf = UUID.randomUUID();
     }
 
-    public Professor(String nomeProfessor, int matriculaProfessor) {
-        this();
-        this.setNomeProfessor(nomeProfessor);
-        this.setMatriculaProfessor(matriculaProfessor);
-    }
+    
 
     public UUID getIdentificacaoProf() {
         return identificacaoProf;
@@ -53,11 +50,24 @@ public class Professor {
     
     
     public void adicionarCurso(String nomedoCurso) {
-        this.cursosProfessor.add(nomedoCurso);
+        //this.cursosProfessor.add(nomedoCurso);
+        this.cursosProfessor.add(novoCurso.getNomeCurso());
     }
     
     public void ListarCursoProfessor() {
         System.out.println(Arrays.toString(this.cursosProfessor.toArray()));
+    }
+    
+    //adicionar professor no curso
+    public void addProfessornoCurso(String nome) {
+        for (Curso s: novoCurso.getCursos()) {
+            this.cursosProfessor.add(nome);
+        }
+            
+    }
+    
+    public void addProfessorEcurso() {
+        
     }
 
     @Override
