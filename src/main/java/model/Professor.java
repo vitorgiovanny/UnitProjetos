@@ -1,43 +1,26 @@
-package projetounit;
+package model;
 
 import java.util.UUID;
-
-/**
- * @author guilherme
- */
+import java.util.ArrayList;
 
 public class Professor {
+
     private UUID identificacaoProf;
-    private int matriculaProfessor;
     private String nomeProfessor;
-    //private Curso[] cursos;
+    private ArrayList<Curso> cursosProfessor;
 
     public Professor() {
-		
+        this.identificacaoProf = UUID.randomUUID();
+        this.cursosProfessor = new ArrayList<Curso>();
     }
 
-    public Professor(String nomeProfessor, int matriculaProfessor) {
+    public Professor(String nomeProfessor) {
         this();
-        this.identificacaoProf = UUID.randomUUID();
-        this.setNomeProfessor(nomeProfessor);
-        this.setMatriculaProfessor(matriculaProfessor);
-        this.setIdentificacaoProf(identificacaoProf);
+        this.nomeProfessor = nomeProfessor;
     }
 
     public UUID getIdentificacaoProf() {
         return identificacaoProf;
-    }
-
-    public void setIdentificacaoProf(UUID identificacaoProf) {
-        this.identificacaoProf = identificacaoProf;
-    }
-
-    public int getMatriculaProfessor() {
-        return matriculaProfessor;
-    }
-
-    public void setMatriculaProfessor(int matriculaProfessor) {
-        this.matriculaProfessor = matriculaProfessor;
     }
 
     public String getNomeProfessor() {
@@ -48,11 +31,17 @@ public class Professor {
         this.nomeProfessor = nomeProfessor;
     }
 
+    public ArrayList<Curso> getCursosProfessor() {
+        return this.cursosProfessor;
+    }
+
+    public void addCursoProfessor(Curso curso) {
+        this.cursosProfessor.add(curso);
+    }
+
     @Override
     public String toString() {
-        return "{Nome: " + this.getNomeProfessor()
-                + ", Matricula: " + this.getMatriculaProfessor()
-                + ", ID professor: " + this.getIdentificacaoProf() + "}";
+        return "Professor{" + "identificacaoProf=" + identificacaoProf + ", nomeProfessor=" + nomeProfessor + ", cursosProfessor=" + cursosProfessor + '}';
     }
-    
+
 }
