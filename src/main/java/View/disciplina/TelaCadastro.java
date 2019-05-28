@@ -6,7 +6,7 @@
 package View.disciplina;
 
 import View.Menu;
-import controller.Controller;
+import controller.ControllerDisciplina;
 import javax.swing.JOptionPane;
 import model.Disciplina;
 
@@ -16,7 +16,7 @@ import model.Disciplina;
  */
 public class TelaCadastro extends javax.swing.JFrame {
 
-    public Controller controller = Menu.controller;
+    public ControllerDisciplina controller = Menu.controller.getControllerDisciplina();
 
     /**
      * Creates new form TelaCadastro
@@ -192,7 +192,7 @@ public class TelaCadastro extends javax.swing.JFrame {
         disciplina.setTipoDisciplina(tipoDisc);
         disciplina.setHorasObrigatorias(qtdHoras);
         disciplina.setLimiteFaltas(limiteFaltas);
-        this.controller.getControllerDisciplina().addDisciplina(disciplina);
+        this.controller.addDisciplina(disciplina);
 
         JOptionPane.showMessageDialog(null, "Disciplina cadastrada!");
         System.out.println(disciplina);

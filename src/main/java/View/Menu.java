@@ -2,8 +2,11 @@ package View;
 
 import View.disciplina.MenuDisciplina;
 import View.professor.MenuProfessor;
+import controller.Controller;
 
 public class Menu extends javax.swing.JFrame {
+
+    public static Controller controller = new Controller();
 
     /**
      * Creates new form Menu

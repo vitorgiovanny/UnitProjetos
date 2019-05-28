@@ -6,7 +6,7 @@
 package View.disciplina;
 
 import View.Menu;
-import controller.Controller;
+import controller.ControllerDisciplina;
 import javax.swing.JOptionPane;
 import model.Disciplina;
 
@@ -16,7 +16,7 @@ import model.Disciplina;
  */
 public class TelaDeletar extends javax.swing.JFrame {
 
-    public Controller controller = Menu.controller;
+    public ControllerDisciplina controller = Menu.controller.getControllerDisciplina();
 
     /**
      * Creates new form TelaDeletar
@@ -144,19 +144,25 @@ public class TelaDeletar extends javax.swing.JFrame {
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         // TODO add your handling code here:
         int codDisc = Integer.parseInt(txtCodigoDisc.getText());
-        for (Disciplina d : this.controller.getControllerDisciplina().getDisciplinas()) {
+        boolean encontrou = false;
+        for (Disciplina d : this.controller.getDisciplinas()) {
             if (d.getCodigoDisciplina() == codDisc) {
                 lblNomeDisc.setText(d.getNomeDisciplina());
+                encontrou = true;
             }
+        }
+
+        if (!encontrou) {
+            JOptionPane.showMessageDialog(null, "DIsciplina não encontrada!");
         }
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     private void btnDeletarDiscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarDiscActionPerformed
         // TODO add your handling code here:
         int codDisc = Integer.parseInt(txtCodigoDisc.getText());
-        for (Disciplina d : this.controller.getControllerDisciplina().getDisciplinas()) {
+        for (Disciplina d : this.controller.getDisciplinas()) {
             if (d.getCodigoDisciplina() == codDisc) {
-                this.controller.getControllerDisciplina().getDisciplinas().remove(d);
+                this.controller.getDisciplinas().remove(d);
                 JOptionPane.showMessageDialog(null, "Disciplina Deletada.");
             }
         }
