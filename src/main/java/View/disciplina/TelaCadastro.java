@@ -6,12 +6,17 @@
 package View.disciplina;
 
 import View.Menu;
+import controller.Controller;
+import javax.swing.JOptionPane;
+import model.Disciplina;
 
 /**
  *
  * @author Sammy Guergachi <sguergachi at gmail.com>
  */
 public class TelaCadastro extends javax.swing.JFrame {
+
+    public Controller controller = Menu.controller;
 
     /**
      * Creates new form TelaCadastro
@@ -53,19 +58,24 @@ public class TelaCadastro extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Cadastrar Disciplina");
 
-        jLabel1.setText("CÃ³digo Disciplina:");
+        jLabel1.setText("Código Disciplina:");
 
         jLabel3.setText("Nome da Disciplina:");
 
-        jLabel4.setText("Qtd. de CrÃ©ditos:");
+        jLabel4.setText("Qtd. de Créditos:");
 
         jLabel5.setText("Tipo da Disciplina:");
 
-        jLabel6.setText("Qtd. Horas ObrigatÃ³rias:");
+        jLabel6.setText("Qtd. Horas Obrigatórias:");
 
         jLabel7.setText("Limite de Faltas:");
 
         btnCadastrarDisc.setText("Cadastrar Disciplina");
+        btnCadastrarDisc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarDiscActionPerformed(evt);
+            }
+        });
 
         btnMenu.setText("Menu");
         btnMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -166,6 +176,27 @@ public class TelaCadastro extends javax.swing.JFrame {
         menu.setLocation(300, 100);
         menu.setResizable(false);
     }//GEN-LAST:event_btnMenuActionPerformed
+
+    private void btnCadastrarDiscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarDiscActionPerformed
+        // TODO add your handling code here:
+        int codDisc = Integer.parseInt(txtCodigoDisc.getText());
+        String nomeDisc = txtNomeDisc.getText();
+        int qtdCreditos = Integer.parseInt(txtQtdCreditos.getText());
+        String tipoDisc = txtTipoDisc.getText();
+        int qtdHoras = Integer.parseInt(txtQtdHoras.getText());
+        int limiteFaltas = Integer.parseInt(txtLimiteFaltas.getText());
+
+        Disciplina disciplina = new Disciplina(codDisc);
+        disciplina.setNomeDisciplina(nomeDisc);
+        disciplina.setQtdCreditos(qtdCreditos);
+        disciplina.setTipoDisciplina(tipoDisc);
+        disciplina.setHorasObrigatorias(qtdHoras);
+        disciplina.setLimiteFaltas(limiteFaltas);
+        this.controller.getControllerDisciplina().addDisciplina(disciplina);
+
+        JOptionPane.showMessageDialog(null, "Disciplina cadastrada!");
+        System.out.println(disciplina);
+    }//GEN-LAST:event_btnCadastrarDiscActionPerformed
 
     /**
      * @param args the command line arguments

@@ -12,7 +12,7 @@ import View.Menu;
  * @author Sammy Guergachi <sguergachi at gmail.com>
  */
 public class MenuDisciplina extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form Cursos
      */

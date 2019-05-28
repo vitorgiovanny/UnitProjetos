@@ -6,12 +6,17 @@
 package View.disciplina;
 
 import View.Menu;
+import controller.Controller;
+import javax.swing.JOptionPane;
+import model.Disciplina;
 
 /**
  *
  * @author Sammy Guergachi <sguergachi at gmail.com>
  */
 public class TelaDeletar extends javax.swing.JFrame {
+
+    public Controller controller = Menu.controller;
 
     /**
      * Creates new form TelaDeletar
@@ -37,7 +42,7 @@ public class TelaDeletar extends javax.swing.JFrame {
         btnPesquisar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         lblNomeDisc = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnDeletarDisc = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,26 +58,36 @@ public class TelaDeletar extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Deletar Disciplina");
 
-        jLabel1.setText("CÃ³digo Disciplina:");
+        jLabel1.setText("Código Disciplina:");
 
         btnPesquisar.setText("Pesquisar");
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Nome Disciplina:");
 
         lblNomeDisc.setText("------------------");
 
-        jButton1.setText("Deletar disciplina");
+        btnDeletarDisc.setText("Deletar disciplina");
+        btnDeletarDisc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeletarDiscActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(274, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnDeletarDisc, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
                         .addGap(237, 237, 237))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -86,11 +101,12 @@ public class TelaDeletar extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(118, 118, 118)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtCodigoDisc)
-                            .addComponent(lblNomeDisc, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(36, 36, 36)
-                        .addComponent(btnPesquisar)))
-                .addGap(0, 181, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtCodigoDisc, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                                .addGap(36, 36, 36)
+                                .addComponent(btnPesquisar))
+                            .addComponent(lblNomeDisc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,7 +123,7 @@ public class TelaDeletar extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(lblNomeDisc))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(btnDeletarDisc)
                 .addGap(69, 69, 69)
                 .addComponent(btnMenu)
                 .addContainerGap())
@@ -124,6 +140,27 @@ public class TelaDeletar extends javax.swing.JFrame {
         menu.setLocation(300, 100);
         menu.setResizable(false);
     }//GEN-LAST:event_btnMenuActionPerformed
+
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+        // TODO add your handling code here:
+        int codDisc = Integer.parseInt(txtCodigoDisc.getText());
+        for (Disciplina d : this.controller.getControllerDisciplina().getDisciplinas()) {
+            if (d.getCodigoDisciplina() == codDisc) {
+                lblNomeDisc.setText(d.getNomeDisciplina());
+            }
+        }
+    }//GEN-LAST:event_btnPesquisarActionPerformed
+
+    private void btnDeletarDiscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarDiscActionPerformed
+        // TODO add your handling code here:
+        int codDisc = Integer.parseInt(txtCodigoDisc.getText());
+        for (Disciplina d : this.controller.getControllerDisciplina().getDisciplinas()) {
+            if (d.getCodigoDisciplina() == codDisc) {
+                this.controller.getControllerDisciplina().getDisciplinas().remove(d);
+                JOptionPane.showMessageDialog(null, "Disciplina Deletada.");
+            }
+        }
+    }//GEN-LAST:event_btnDeletarDiscActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,9 +198,9 @@ public class TelaDeletar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDeletarDisc;
     private javax.swing.JButton btnMenu;
     private javax.swing.JButton btnPesquisar;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
