@@ -1,7 +1,7 @@
 package View;
 
 import View.disciplina.MenuDisciplina;
-import sistemaAcademico.view.professor.MenuProfessor;
+import View.professor.MenuProfessor;
 
 public class Menu extends javax.swing.JFrame {
 
