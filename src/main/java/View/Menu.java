@@ -1,7 +1,6 @@
 package View;
 
 import View.disciplina.MenuDisciplina;
-import View.cursos.MenuCurso;
 import View.professor.MenuProfessor;
 import controller.Controller;
 
@@ -136,11 +135,7 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCursosActionPerformed
-        dispose();
-        MenuCurso curso = new MenuCurso();
-        curso.setVisible(true);
-        curso.setLocation(300, 100);
-        curso.setResizable(false);
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnCursosActionPerformed
 
     private void btnMatrizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMatrizActionPerformed

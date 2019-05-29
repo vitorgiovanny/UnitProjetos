@@ -39,4 +39,9 @@ public class Professor {
         this.cursosProfessor.add(curso);
     }
 
+    @Override
+    public String toString() {
+        return "Professor{" + "identificacaoProf=" + identificacaoProf + ", nomeProfessor=" + nomeProfessor + ", cursosProfessor=" + cursosProfessor + '}';
+    }
+
 }

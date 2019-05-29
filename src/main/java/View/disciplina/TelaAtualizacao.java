@@ -6,12 +6,17 @@
 package View.disciplina;
 
 import View.Menu;
+import controller.ControllerDisciplina;
+import javax.swing.JOptionPane;
+import model.Disciplina;
 
 /**
  *
  * @author Sammy Guergachi <sguergachi at gmail.com>
  */
 public class TelaAtualizacao extends javax.swing.JFrame {
+
+    public ControllerDisciplina controller = Menu.controller.getControllerDisciplina();
 
     /**
      * Creates new form TelaAtualizacao
@@ -54,21 +59,31 @@ public class TelaAtualizacao extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Atualizar Disciplina");
 
-        jLabel1.setText("CÃ³digo Disciplina:");
+        jLabel1.setText("Código Disciplina:");
 
         btnPesquisar.setText("Pesquisar");
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Nome da Disciplina:");
 
-        jLabel4.setText("Qtd. de CrÃ©ditos:");
+        jLabel4.setText("Qtd. de Créditos:");
 
         jLabel5.setText("Tipo da Disciplina:");
 
-        jLabel6.setText("Qtd. Horas ObrigatÃ³rias:");
+        jLabel6.setText("Qtd. Horas Obrigatórias:");
 
         jLabel7.setText("Limite de Faltas:");
 
         btnAtualizar.setText("Atualizar dados");
+        btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtualizarActionPerformed(evt);
+            }
+        });
 
         btnMenu.setText("Menu");
         btnMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -164,6 +179,48 @@ public class TelaAtualizacao extends javax.swing.JFrame {
         menu.setLocation(300, 100);
         menu.setResizable(false);
     }//GEN-LAST:event_btnMenuActionPerformed
+
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+        // TODO add your handling code here:
+        int codDisc = Integer.parseInt(txtCodigoDisc.getText());
+        boolean encontrou = false;
+        for (Disciplina d : this.controller.getDisciplinas()) {
+            if (d.getCodigoDisciplina() == codDisc) {
+                encontrou = true;
+                txtNomeDisc.setText(d.getNomeDisciplina());
+                txtQtdCreditos.setText(Integer.toString(d.getQtdCreditos()));
+                txtTipoDisc.setText(d.getTipoDisciplina());
+                txtQtdHoras.setText(Integer.toString(d.getHorasObrigatorias()));
+                txtLimiteFaltas.setText(Integer.toString(d.getLimiteFaltas()));
+            }
+        }
+
+        if (!encontrou) {
+            JOptionPane.showMessageDialog(null, "DIsciplina não encontrada!");
+        }
+    }//GEN-LAST:event_btnPesquisarActionPerformed
+
+    private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
+        // TODO add your handling code here:
+        int codDisc = Integer.parseInt(txtCodigoDisc.getText());
+        String nomeDisc = txtNomeDisc.getText();
+        int qtdCreditos = Integer.parseInt(txtQtdCreditos.getText());
+        String tipoDisc = txtTipoDisc.getText();
+        int qtdHoras = Integer.parseInt(txtQtdHoras.getText());
+        int limiteFaltas = Integer.parseInt(txtLimiteFaltas.getText());
+
+        for (Disciplina d : this.controller.getDisciplinas()) {
+            if (d.getCodigoDisciplina() == codDisc) {
+                d.setCodigoDisciplina(codDisc);
+                d.setNomeDisciplina(nomeDisc);
+                d.setQtdCreditos(qtdCreditos);
+                d.setTipoDisciplina(tipoDisc);
+                d.setHorasObrigatorias(qtdHoras);
+                d.setLimiteFaltas(limiteFaltas);
+                JOptionPane.showMessageDialog(null, "DIsciplina alterada!");
+            }
+        }
+    }//GEN-LAST:event_btnAtualizarActionPerformed
 
     /**
      * @param args the command line arguments
