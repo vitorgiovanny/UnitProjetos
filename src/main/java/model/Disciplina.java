@@ -7,7 +7,7 @@ public class Disciplina {
     private int codigoDisciplina;
     private String nomeDisciplina;
     private int qtdCreditos;
-    private String tipoDisciplina;
+    private char tipoDisciplina;
     private int horasObrigatorias;
     private int limiteFaltas;
     private Professor professor;
@@ -52,11 +52,11 @@ public class Disciplina {
         this.qtdCreditos = qtdCreditos;
     }
 
-    public String getTipoDisciplina() {
+    public char getTipoDisciplina() {
         return tipoDisciplina;
     }
 
-    public void setTipoDisciplina(String tipoDisciplina) {
+    public void setTipoDisciplina(char tipoDisciplina) {
         this.tipoDisciplina = tipoDisciplina;
     }
 
@@ -114,11 +114,6 @@ public class Disciplina {
 
     public void addTurma(Turma turma) {
         this.turmas.add(turma);
-    }
-
-    @Override
-    public String toString() {
-        return "Disciplina{" + "codigoDisciplina=" + codigoDisciplina + ", nomeDisciplina=" + nomeDisciplina + ", qtdCreditos=" + qtdCreditos + ", tipoDisciplina=" + tipoDisciplina + ", horasObrigatorias=" + horasObrigatorias + ", limiteFaltas=" + limiteFaltas + ", professor=" + professor + ", historicos=" + historicos + ", matriz=" + matriz + ", matriculas=" + matriculas + ", turmas=" + turmas + '}';
     }
 
 }

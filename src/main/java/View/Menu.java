@@ -1,16 +1,9 @@
 package View;
 
 import View.disciplina.MenuDisciplina;
-<<<<<<< HEAD
 import View.cursos.MenuCurso;
-=======
-import View.professor.MenuProfessor;
-import controller.Controller;
->>>>>>> 67bb005cdcdf2983b3142f93e2334e8c77d5fcfb
 
 public class Menu extends javax.swing.JFrame {
-
-    public static Controller controller = new Controller();
 
     /**
      * Creates new form Menu
@@ -71,11 +64,6 @@ public class Menu extends javax.swing.JFrame {
         btnMatricula.setText("Matricula");
 
         btnProfessor.setText("Professor");
-        btnProfessor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnProfessorActionPerformed(evt);
-            }
-        });
 
         btnTurma.setText("Turma");
 
@@ -158,15 +146,6 @@ public class Menu extends javax.swing.JFrame {
         menuDisciplina.setLocation(300, 100);
         menuDisciplina.setResizable(false);
     }//GEN-LAST:event_btnDisciplinaActionPerformed
-
-    private void btnProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfessorActionPerformed
-        // TODO add your handling code here:
-        dispose();
-        MenuProfessor menuProfessor = new MenuProfessor();
-        menuProfessor.setVisible(true);
-        menuProfessor.setLocation(300, 100);
-        menuProfessor.setResizable(false);
-    }//GEN-LAST:event_btnProfessorActionPerformed
 
     /**
      * @param args the command line arguments
