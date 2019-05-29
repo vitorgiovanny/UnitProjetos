@@ -1,12 +1,9 @@
 package View;
 
 import View.disciplina.MenuDisciplina;
-<<<<<<< HEAD
 import View.cursos.MenuCurso;
-=======
 import View.professor.MenuProfessor;
 import controller.Controller;
->>>>>>> 67bb005cdcdf2983b3142f93e2334e8c77d5fcfb
 
 public class Menu extends javax.swing.JFrame {
 
@@ -139,11 +136,11 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCursosActionPerformed
-       dispose();
-       MenuCurso curso = new MenuCurso();
-       curso.setVisible(true);
-       curso.setLocation(300,100);
-       curso.setResizable(false);
+        dispose();
+        MenuCurso curso = new MenuCurso();
+        curso.setVisible(true);
+        curso.setLocation(300, 100);
+        curso.setResizable(false);
     }//GEN-LAST:event_btnCursosActionPerformed
 
     private void btnMatrizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMatrizActionPerformed
