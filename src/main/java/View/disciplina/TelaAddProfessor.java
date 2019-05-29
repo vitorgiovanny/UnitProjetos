@@ -6,12 +6,18 @@
 package View.disciplina;
 
 import View.Menu;
+import controller.ControllerDisciplina;
+import javax.swing.JOptionPane;
+import model.Disciplina;
+import model.Professor;
 
 /**
  *
  * @author Sammy Guergachi <sguergachi at gmail.com>
  */
 public class TelaAddProfessor extends javax.swing.JFrame {
+
+    public ControllerDisciplina controller = Menu.controller.getControllerDisciplina();
 
     /**
      * Creates new form TelaAddProfessor
@@ -36,8 +42,10 @@ public class TelaAddProfessor extends javax.swing.JFrame {
         txtCodigoDisc = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         btnPesquisar = new javax.swing.JButton();
-        txtSemestre = new javax.swing.JTextField();
+        txtNomeProf = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        lblNomeDisc = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,18 +56,32 @@ public class TelaAddProfessor extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("CÃ³digo Disciplina:");
+        jLabel3.setText("Código Disciplina:");
 
         btnAddProfessor.setText("Adicionar Professor");
+        btnAddProfessor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddProfessorActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Nome do Professor:");
 
         btnPesquisar.setText("Pesquisar");
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarActionPerformed(evt);
+            }
+        });
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 153));
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Adicionar Professor");
+
+        lblNomeDisc.setText("------------------");
+
+        jLabel12.setText("Nome Disciplina:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -69,22 +91,13 @@ public class TelaAddProfessor extends javax.swing.JFrame {
                 .addContainerGap(617, Short.MAX_VALUE)
                 .addComponent(btnMenu)
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(228, 228, 228)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(267, 267, 267)
-                        .addComponent(btnAddProfessor)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(76, 76, 76)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtSemestre))
+                        .addComponent(txtNomeProf))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(167, 167, 167)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,6 +110,24 @@ public class TelaAddProfessor extends javax.swing.JFrame {
                                 .addGap(36, 36, 36)
                                 .addComponent(btnPesquisar)))))
                 .addGap(165, 165, 165))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(228, 228, 228)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(267, 267, 267)
+                        .addComponent(btnAddProfessor))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(167, 167, 167)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel12)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 315, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(118, 118, 118)
+                                .addComponent(lblNomeDisc, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,11 +139,15 @@ public class TelaAddProfessor extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(txtCodigoDisc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPesquisar))
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(lblNomeDisc))
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txtSemestre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
+                    .addComponent(txtNomeProf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
                 .addComponent(btnAddProfessor)
                 .addGap(19, 19, 19)
                 .addComponent(btnMenu)
@@ -130,6 +165,36 @@ public class TelaAddProfessor extends javax.swing.JFrame {
         menu.setLocation(300, 100);
         menu.setResizable(false);
     }//GEN-LAST:event_btnMenuActionPerformed
+
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+        // TODO add your handling code here:
+        int codDisc = Integer.parseInt(txtCodigoDisc.getText());
+        boolean encontrou = false;
+        for (Disciplina d : this.controller.getDisciplinas()) {
+            if (d.getCodigoDisciplina() == codDisc) {
+                lblNomeDisc.setText(d.getNomeDisciplina());
+                encontrou = true;
+            }
+        }
+
+        if (!encontrou) {
+            JOptionPane.showMessageDialog(null, "Disciplina não encontrada!");
+        }
+    }//GEN-LAST:event_btnPesquisarActionPerformed
+
+    private void btnAddProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProfessorActionPerformed
+        // TODO add your handling code here:
+        int codDisc = Integer.parseInt(txtCodigoDisc.getText());
+        String nomeProf = txtNomeProf.getText();
+        Professor professor = new Professor(nomeProf);
+
+        for (Disciplina d : this.controller.getDisciplinas()) {
+            if (d.getCodigoDisciplina() == codDisc) {
+                d.setProfessor(professor);
+                JOptionPane.showMessageDialog(null, "Professor adicionado!");
+            }
+        }
+    }//GEN-LAST:event_btnAddProfessorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -170,10 +235,12 @@ public class TelaAddProfessor extends javax.swing.JFrame {
     private javax.swing.JButton btnAddProfessor;
     private javax.swing.JButton btnMenu;
     private javax.swing.JButton btnPesquisar;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel lblNomeDisc;
     private javax.swing.JTextField txtCodigoDisc;
-    private javax.swing.JTextField txtSemestre;
+    private javax.swing.JTextField txtNomeProf;
     // End of variables declaration//GEN-END:variables
 }

@@ -10,7 +10,7 @@ public class Aluno {
     private int totalCreditos;
     private String dataNascimento;
     private double mediaGeral;
-    private final UUID codigoAluno;
+    private int codigoAluno;
     private Historico historico;
 
     public Aluno(String nomeAluno, int totalCreditos, String dataNascimento, double mediaGeral) {
@@ -22,7 +22,6 @@ public class Aluno {
     }
 
     public Aluno() {
-        this.codigoAluno = UUID.randomUUID();
         this.matriculas = new ArrayList<Matricula>();
     }
 
@@ -58,8 +57,12 @@ public class Aluno {
         this.mediaGeral = mediaGeral;
     }
 
-    public UUID getCodigoAluno() {
+    public int getCodigoAluno() {
         return codigoAluno;
+    }
+
+    public void setCodigoAluno(int codigoAluno) {
+        this.codigoAluno = codigoAluno;
     }
 
     public ArrayList<Matricula> getMatriculas() {

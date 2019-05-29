@@ -6,12 +6,18 @@
 package View.disciplina;
 
 import View.Menu;
+import controller.ControllerDisciplina;
+import javax.swing.JOptionPane;
+import model.Disciplina;
+import model.Historico;
 
 /**
  *
  * @author Sammy Guergachi <sguergachi at gmail.com>
  */
 public class TelaAddHistorico extends javax.swing.JFrame {
+
+    public ControllerDisciplina controller = Menu.controller.getControllerDisciplina();
 
     /**
      * Creates new form TelaAddHistorico
@@ -46,6 +52,8 @@ public class TelaAddHistorico extends javax.swing.JFrame {
         txtCodigoDisc = new javax.swing.JTextField();
         btnPesquisar = new javax.swing.JButton();
         txtAno = new javax.swing.JTextField();
+        lblNomeDisc = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,14 +61,14 @@ public class TelaAddHistorico extends javax.swing.JFrame {
 
         jLabel9.setText("Faltas:");
 
-        jLabel5.setText("SituaÃ§Ã£o:");
+        jLabel5.setText("Situação:");
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 153));
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Adicionar Historico");
 
-        jLabel6.setText("MÃ©dia:");
+        jLabel6.setText("Média:");
 
         jLabel1.setText("Ano:");
 
@@ -71,11 +79,25 @@ public class TelaAddHistorico extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("CÃ³digo Disciplina:");
+        jLabel3.setText("Código Disciplina:");
 
         btnAddHistorico.setText("Adicionar Historico");
+        btnAddHistorico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddHistoricoActionPerformed(evt);
+            }
+        });
 
         btnPesquisar.setText("Pesquisar");
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarActionPerformed(evt);
+            }
+        });
+
+        lblNomeDisc.setText("------------------");
+
+        jLabel12.setText("Nome Disciplina:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -85,48 +107,61 @@ public class TelaAddHistorico extends javax.swing.JFrame {
                 .addGap(167, 167, 167)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(219, 219, 219))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel12)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 315, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(118, 118, 118)
+                                .addComponent(lblNomeDisc, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(118, 118, 118)
-                        .addComponent(txtCodigoDisc, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
-                        .addGap(36, 36, 36)
-                        .addComponent(btnPesquisar)))
-                .addGap(165, 165, 165))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(617, Short.MAX_VALUE)
-                .addComponent(btnMenu)
-                .addContainerGap())
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(219, 219, 219))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(118, 118, 118)
+                                .addComponent(txtCodigoDisc, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                                .addGap(36, 36, 36)
+                                .addComponent(btnPesquisar)))
+                        .addGap(165, 165, 165))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(617, Short.MAX_VALUE)
+                        .addComponent(btnMenu))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtAno)
-                            .addComponent(txtSemestre)
-                            .addComponent(txtSituacao, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE))
-                        .addGap(46, 46, 46)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtMedia, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(228, 228, 228)
+                                .addComponent(jLabel2))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtFaltas))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(228, 228, 228)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(270, 270, 270)
-                        .addComponent(btnAddHistorico)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(270, 270, 270)
+                                .addComponent(btnAddHistorico))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(78, 78, 78)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtAno)
+                                    .addComponent(txtSemestre)
+                                    .addComponent(txtSituacao, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(46, 46, 46)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel6)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtMedia, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel9)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtFaltas, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,7 +173,11 @@ public class TelaAddHistorico extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(txtCodigoDisc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPesquisar))
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(lblNomeDisc))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -154,9 +193,9 @@ public class TelaAddHistorico extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txtSituacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(btnAddHistorico)
-                .addGap(21, 21, 21)
+                .addGap(5, 5, 5)
                 .addComponent(btnMenu)
                 .addContainerGap())
         );
@@ -172,6 +211,46 @@ public class TelaAddHistorico extends javax.swing.JFrame {
         menu.setLocation(300, 100);
         menu.setResizable(false);
     }//GEN-LAST:event_btnMenuActionPerformed
+
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+        // TODO add your handling code here:
+        int codDisc = Integer.parseInt(txtCodigoDisc.getText());
+        boolean encontrou = false;
+        for (Disciplina d : this.controller.getDisciplinas()) {
+            if (d.getCodigoDisciplina() == codDisc) {
+                lblNomeDisc.setText(d.getNomeDisciplina());
+                encontrou = true;
+            }
+        }
+
+        if (!encontrou) {
+            JOptionPane.showMessageDialog(null, "Disciplina não encontrada!");
+        }
+    }//GEN-LAST:event_btnPesquisarActionPerformed
+
+    private void btnAddHistoricoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddHistoricoActionPerformed
+        // TODO add your handling code here:
+        int codDisc = Integer.parseInt(txtCodigoDisc.getText());
+        int ano = Integer.parseInt(txtAno.getText());
+        int semestre = Integer.parseInt(txtSemestre.getText());
+        String situacao = txtSituacao.getText();
+        double media = Integer.parseInt(txtMedia.getText());
+        int faltas = Integer.parseInt(txtFaltas.getText());
+
+        Historico historico = new Historico();
+        historico.setAno(ano);
+        historico.setSemestre(semestre);
+        historico.setSituacao(situacao);
+        historico.setMedia(media);
+        historico.setFaltas(faltas);
+
+        for (Disciplina d : this.controller.getDisciplinas()) {
+            if (d.getCodigoDisciplina() == codDisc) {
+                d.addHistorico(historico);
+                JOptionPane.showMessageDialog(null, "Histórico adicionado!");
+            }
+        }
+    }//GEN-LAST:event_btnAddHistoricoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -213,12 +292,14 @@ public class TelaAddHistorico extends javax.swing.JFrame {
     private javax.swing.JButton btnMenu;
     private javax.swing.JButton btnPesquisar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel lblNomeDisc;
     private javax.swing.JTextField txtAno;
     private javax.swing.JTextField txtCodigoDisc;
     private javax.swing.JTextField txtFaltas;

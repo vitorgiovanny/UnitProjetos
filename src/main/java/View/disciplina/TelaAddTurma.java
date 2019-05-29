@@ -6,12 +6,18 @@
 package View.disciplina;
 
 import View.Menu;
+import controller.ControllerDisciplina;
+import javax.swing.JOptionPane;
+import model.Disciplina;
+import model.Turma;
 
 /**
  *
  * @author Sammy Guergachi <sguergachi at gmail.com>
  */
 public class TelaAddTurma extends javax.swing.JFrame {
+
+    public ControllerDisciplina controller = Menu.controller.getControllerDisciplina();
 
     /**
      * Creates new form TelaAddTurma
@@ -42,6 +48,8 @@ public class TelaAddTurma extends javax.swing.JFrame {
         txtVagas = new javax.swing.JTextField();
         btnMenu = new javax.swing.JButton();
         btnAddTurma = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        lblNomeDisc = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,9 +60,14 @@ public class TelaAddTurma extends javax.swing.JFrame {
 
         jLabel1.setText("Ano:");
 
-        jLabel3.setText("CÃ³digo Disciplina:");
+        jLabel3.setText("Código Disciplina:");
 
         btnPesquisar.setText("Pesquisar");
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Semestre:");
 
@@ -68,6 +81,15 @@ public class TelaAddTurma extends javax.swing.JFrame {
         });
 
         btnAddTurma.setText("Adicionar Turma");
+        btnAddTurma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddTurmaActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Nome Disciplina:");
+
+        lblNomeDisc.setText("------------------");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -77,14 +99,19 @@ public class TelaAddTurma extends javax.swing.JFrame {
                 .addGap(167, 167, 167)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(219, 219, 219))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(219, 219, 219))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(118, 118, 118)
+                                .addComponent(txtCodigoDisc, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                                .addGap(36, 36, 36)
+                                .addComponent(btnPesquisar)))
+                        .addGap(165, 165, 165))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(118, 118, 118)
-                        .addComponent(txtCodigoDisc, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
-                        .addGap(36, 36, 36)
-                        .addComponent(btnPesquisar)))
-                .addGap(165, 165, 165))
+                        .addComponent(jLabel6)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,20 +124,24 @@ public class TelaAddTurma extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(77, 77, 77)
+                        .addGap(298, 298, 298)
+                        .addComponent(btnAddTurma))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(75, 75, 75)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtAno)
                             .addComponent(txtSemestre)
-                            .addComponent(txtVagas, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(298, 298, 298)
-                        .addComponent(btnAddTurma)))
+                            .addComponent(txtVagas, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblNomeDisc, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(108, 108, 108))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,7 +153,11 @@ public class TelaAddTurma extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(txtCodigoDisc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPesquisar))
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(lblNomeDisc))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -134,7 +169,7 @@ public class TelaAddTurma extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txtVagas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAddTurma)
                 .addGap(19, 19, 19)
                 .addComponent(btnMenu)
@@ -152,6 +187,43 @@ public class TelaAddTurma extends javax.swing.JFrame {
         menu.setLocation(300, 100);
         menu.setResizable(false);
     }//GEN-LAST:event_btnMenuActionPerformed
+
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+        // TODO add your handling code here:
+        int codDisc = Integer.parseInt(txtCodigoDisc.getText());
+        boolean encontrou = false;
+        for (Disciplina d : this.controller.getDisciplinas()) {
+            if (d.getCodigoDisciplina() == codDisc) {
+                lblNomeDisc.setText(d.getNomeDisciplina());
+                encontrou = true;
+            }
+        }
+
+        if (!encontrou) {
+            JOptionPane.showMessageDialog(null, "Disciplina não encontrada!");
+        }
+    }//GEN-LAST:event_btnPesquisarActionPerformed
+
+    private void btnAddTurmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddTurmaActionPerformed
+        // TODO add your handling code here:
+        int codDisc = Integer.parseInt(txtCodigoDisc.getText());
+        int ano = Integer.parseInt(txtAno.getText());
+        int semestre = Integer.parseInt(txtSemestre.getText());
+        int vagas = Integer.parseInt(txtVagas.getText());
+
+        Turma turma = new Turma();
+        turma.setAno(ano);
+        turma.setSemestre(semestre);
+        turma.setVagas(vagas);
+
+        for (Disciplina d : this.controller.getDisciplinas()) {
+            if (d.getCodigoDisciplina() == codDisc) {
+                d.addTurma(turma);
+                JOptionPane.showMessageDialog(null, "Turma adicionada!");
+            }
+        }
+
+    }//GEN-LAST:event_btnAddTurmaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -197,6 +269,8 @@ public class TelaAddTurma extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel lblNomeDisc;
     private javax.swing.JTextField txtAno;
     private javax.swing.JTextField txtCodigoDisc;
     private javax.swing.JTextField txtSemestre;
