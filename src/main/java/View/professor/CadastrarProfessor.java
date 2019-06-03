@@ -6,12 +6,17 @@
 package View.professor;
 
 import View.Menu;
+import controller.ControllerProfessor;
+import model.Professor;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author guilherme
  */
 public class CadastrarProfessor extends javax.swing.JDialog {
+    
+    public ControllerProfessor controller = Menu.controller.getControllerProfessor();
 
     /**
      * Creates new form CadastrarProfessor
@@ -60,6 +65,11 @@ public class CadastrarProfessor extends javax.swing.JDialog {
         });
 
         btnEvetivarcadastro.setText("Cadastrar");
+        btnEvetivarcadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEvetivarcadastroActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -112,6 +122,16 @@ public class CadastrarProfessor extends javax.swing.JDialog {
     private void campoNomeprofActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNomeprofActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoNomeprofActionPerformed
+
+    private void btnEvetivarcadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEvetivarcadastroActionPerformed
+        String nomeprof = campoNomeprof.getText();
+        
+        Professor professor = new Professor(nomeprof);
+        
+        this.controller.AddProfessor(professor);
+        JOptionPane.showMessageDialog(null, "Cadastrado");
+        System.out.println(professor);
+    }//GEN-LAST:event_btnEvetivarcadastroActionPerformed
 
     /**
      * @param args the command line arguments
