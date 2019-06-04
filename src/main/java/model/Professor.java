@@ -7,11 +7,11 @@ public class Professor {
 
     private UUID identificacaoProf;
     private String nomeProfessor;
-    private ArrayList<Curso> cursosProfessor;
+    private Curso cursoProfessor;
 
     public Professor() {
         this.identificacaoProf = UUID.randomUUID();
-        this.cursosProfessor = new ArrayList<Curso>();
+        this.cursoProfessor = new Curso();
     }
 
     public Professor(String nomeProfessor) {
@@ -31,17 +31,14 @@ public class Professor {
         this.nomeProfessor = nomeProfessor;
     }
 
-    public ArrayList<Curso> getCursosProfessor() {
-        return this.cursosProfessor;
+    public Curso getCursosProfessor() {
+        return this.cursoProfessor;
     }
 
-    public void addCursoProfessor(Curso curso) {
-        this.cursosProfessor.add(curso);
-    }
 
     @Override
     public String toString() {
-        return "Professor{" + "identificacaoProf=" + identificacaoProf + ", nomeProfessor=" + nomeProfessor + ", cursosProfessor=" + cursosProfessor + '}';
+        return "Professor{" + "identificacaoProf=" + identificacaoProf + ", \nnomeProfessor=" + nomeProfessor + ", \ncursosProfessor=" + cursoProfessor + '}';
     }
 
 }

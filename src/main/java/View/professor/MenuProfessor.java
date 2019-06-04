@@ -6,12 +6,17 @@
 package View.professor;
 
 import View.Menu;
+import controller.ControllerProfessor;
+import javax.swing.JOptionPane;
+import view.professor.DeletarProfessor;
 
 /**
  *
  * @author guilherme
  */
 public class MenuProfessor extends javax.swing.JDialog {
+    
+    public ControllerProfessor controll = Menu.controller.getControllerProfessor();
 
     /**
      * Creates new form MenuProfessor
@@ -34,6 +39,7 @@ public class MenuProfessor extends javax.swing.JDialog {
         btnCadastroProf = new javax.swing.JButton();
         btnMenuBack = new javax.swing.JButton();
         btnExibirCursoProf = new javax.swing.JButton();
+        btnDeleteprof = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -57,10 +63,17 @@ public class MenuProfessor extends javax.swing.JDialog {
             }
         });
 
-        btnExibirCursoProf.setText("Exibir Cursos do Professor");
+        btnExibirCursoProf.setText("Curso");
         btnExibirCursoProf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExibirCursoProfActionPerformed(evt);
+            }
+        });
+
+        btnDeleteprof.setText("Deletar Professor");
+        btnDeleteprof.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteprofActionPerformed(evt);
             }
         });
 
@@ -78,8 +91,9 @@ public class MenuProfessor extends javax.swing.JDialog {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnCadastroProf)
-                            .addComponent(btnExibirCursoProf))
-                        .addGap(0, 247, Short.MAX_VALUE)))
+                            .addComponent(btnExibirCursoProf)
+                            .addComponent(btnDeleteprof))
+                        .addGap(0, 284, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -89,9 +103,11 @@ public class MenuProfessor extends javax.swing.JDialog {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(56, 56, 56)
                 .addComponent(btnCadastroProf)
-                .addGap(70, 70, 70)
+                .addGap(55, 55, 55)
+                .addComponent(btnDeleteprof)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addComponent(btnExibirCursoProf)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+                .addGap(42, 42, 42)
                 .addComponent(btnMenuBack)
                 .addContainerGap())
         );
@@ -119,12 +135,16 @@ public class MenuProfessor extends javax.swing.JDialog {
     }//GEN-LAST:event_btnMenuBackActionPerformed
 
     private void btnExibirCursoProfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExibirCursoProfActionPerformed
-        dispose();
-        ExibirCursoprofessor exibircursoprofessor = new ExibirCursoprofessor();
-        exibircursoprofessor.setVisible(true);
-        exibircursoprofessor.setLocation(300, 100);
-        exibircursoprofessor.setResizable(false);
+        JOptionPane.showMessageDialog(null, this.controll.getprofessor());
     }//GEN-LAST:event_btnExibirCursoProfActionPerformed
+
+    private void btnDeleteprofActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteprofActionPerformed
+        dispose();
+        DeletarProfessor delprof = new DeletarProfessor();
+        delprof.setVisible(true);
+        delprof.setLocation(300, 100);
+        delprof.setResizable(false);
+    }//GEN-LAST:event_btnDeleteprofActionPerformed
 
     /**
      * @param args the command line arguments
@@ -164,6 +184,7 @@ public class MenuProfessor extends javax.swing.JDialog {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastroProf;
+    private javax.swing.JButton btnDeleteprof;
     private javax.swing.JButton btnExibirCursoProf;
     private javax.swing.JButton btnMenuBack;
     private javax.swing.JLabel jLabel1;

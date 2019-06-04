@@ -35,8 +35,9 @@
                           <Component id="jLabel1" alignment="2" min="-2" max="-2" attributes="0"/>
                           <Component id="btnCadastroProf" alignment="2" min="-2" max="-2" attributes="0"/>
                           <Component id="btnExibirCursoProf" alignment="2" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnDeleteprof" alignment="2" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="247" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="284" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -50,9 +51,11 @@
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
               <Component id="btnCadastroProf" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+              <Component id="btnDeleteprof" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="59" max="32767" attributes="0"/>
               <Component id="btnExibirCursoProf" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="113" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
               <Component id="btnMenuBack" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -95,10 +98,18 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnExibirCursoProf">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Exibir Cursos do Professor"/>
+        <Property name="text" type="java.lang.String" value="Curso"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExibirCursoProfActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnDeleteprof">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Deletar Professor"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteprofActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
