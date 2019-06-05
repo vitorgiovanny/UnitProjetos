@@ -42,6 +42,8 @@ public class CadastrarProfessor extends javax.swing.JDialog {
         campoNomeprof = new javax.swing.JTextField();
         btnEvetivarcadastro = new javax.swing.JButton();
         btnMenuprof = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        campoTextdout = new javax.swing.JTextField();
 
         jButton1.setText("jButton1");
 
@@ -79,6 +81,8 @@ public class CadastrarProfessor extends javax.swing.JDialog {
             }
         });
 
+        jLabel3.setText("Possui Diploma de Doutorado:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -86,20 +90,25 @@ public class CadastrarProfessor extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(180, 180, 180)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(campoNomeprof, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel1)
-                            .addComponent(btnEvetivarcadastro))
-                        .addGap(0, 142, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(btnMenuprof)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnMenuBack)))
+                        .addComponent(btnMenuBack))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(180, 180, 180)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(campoTextdout))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel2)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(campoNomeprof, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel1)
+                                .addComponent(btnEvetivarcadastro)))
+                        .addGap(0, 142, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -111,9 +120,13 @@ public class CadastrarProfessor extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(campoNomeprof, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addGap(54, 54, 54)
+                .addGap(16, 16, 16)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(campoTextdout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(btnEvetivarcadastro)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnMenuBack)
                     .addComponent(btnMenuprof))
@@ -137,12 +150,18 @@ public class CadastrarProfessor extends javax.swing.JDialog {
 
     private void btnEvetivarcadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEvetivarcadastroActionPerformed
         String nomeprof = campoNomeprof.getText();
+        String verificDout = campoTextdout.getText();
         
         Professor professor = new Professor(nomeprof);
+        professor.setDiplomaDout(verificDout);
         
-        this.controller.AddProfessor(professor);
-        JOptionPane.showMessageDialog(null, "Cadastrado");
-        System.out.println(professor);
+        if (professor.VerificarCondicao()) {
+            this.controller.AddProfessor(professor);
+            JOptionPane.showMessageDialog(null, "Cadastrado");
+            System.out.println(professor);
+        } else {
+            JOptionPane.showMessageDialog(null, "Não pode ser cadastrado, não possui Doutorado");
+        }
     }//GEN-LAST:event_btnEvetivarcadastroActionPerformed
 
     private void btnMenuprofActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuprofActionPerformed
@@ -197,8 +216,10 @@ public class CadastrarProfessor extends javax.swing.JDialog {
     private javax.swing.JButton btnMenuBack;
     private javax.swing.JButton btnMenuprof;
     private javax.swing.JTextField campoNomeprof;
+    private javax.swing.JTextField campoTextdout;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }

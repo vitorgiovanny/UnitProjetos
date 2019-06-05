@@ -7,6 +7,7 @@ public class Professor {
 
     private UUID identificacaoProf;
     private String nomeProfessor;
+    private String diplomaDout;
     private Curso cursoProfessor;
 
     public Professor() {
@@ -35,7 +36,21 @@ public class Professor {
         return this.cursoProfessor;
     }
 
+    public void setDiplomaDout(String diplomaDout) {
+        this.diplomaDout = diplomaDout;
+    }
 
+    public String getDiplomaDout() {
+        return diplomaDout;
+    }
+    
+    public boolean VerificarCondicao() {
+        if ("sim".equals(this.getDiplomaDout())) {
+            return true;
+        } 
+        return false;
+    }
+    
     @Override
     public String toString() {
         return "Professor{" + "identificacaoProf=" + identificacaoProf + ", \nnomeProfessor=" + nomeProfessor + ", \ncursosProfessor=" + cursoProfessor + '}';
