@@ -5,7 +5,9 @@
  */
 package View.cursos;
 
-import controller.ControllerCurso;
+import controller.Controller;
+
+
 /**
  *
  * @author Vitor
@@ -85,6 +87,7 @@ public class CadastrarCurso extends javax.swing.JFrame {
         String nomeCurso = NomeCurso.getText();
         
         ControllerCurso curso = new ControllerCurso();
+        curso.setControllerGeral();
         
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
