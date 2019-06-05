@@ -10,7 +10,6 @@ public class Disciplina {
     private String tipoDisciplina;
     private int horasObrigatorias;
     private int limiteFaltas;
-    private Professor professor;
     private ArrayList<Historico> historicos;
     private Matriz matriz;
     private ArrayList<Matricula> matriculas;
@@ -18,7 +17,6 @@ public class Disciplina {
 
     public Disciplina() {
         this.historicos = new ArrayList<Historico>();
-        this.professor = new Professor();
         this.matriculas = new ArrayList<Matricula>();
         this.turmas = new ArrayList<Turma>();
     }
@@ -76,14 +74,6 @@ public class Disciplina {
         this.limiteFaltas = limiteFaltas;
     }
 
-    public Professor getProfessor() {
-        return professor;
-    }
-
-    public void setProfessor(Professor professor) {
-        this.professor = professor;
-    }
-
     public ArrayList<Historico> getHistoricos() {
         return historicos;
     }
@@ -118,7 +108,7 @@ public class Disciplina {
 
     @Override
     public String toString() {
-        return "Disciplina{" + "codigoDisciplina=" + codigoDisciplina + ", nomeDisciplina=" + nomeDisciplina + ", qtdCreditos=" + qtdCreditos + ", tipoDisciplina=" + tipoDisciplina + ", horasObrigatorias=" + horasObrigatorias + ", limiteFaltas=" + limiteFaltas + ", professor=" + professor + ", historicos=" + historicos + ", matriz=" + matriz + ", matriculas=" + matriculas + ", turmas=" + turmas + '}';
+        return "Disciplina{" + "codigoDisciplina=" + codigoDisciplina + ", nomeDisciplina=" + nomeDisciplina + ", qtdCreditos=" + qtdCreditos + ", tipoDisciplina=" + tipoDisciplina + ", horasObrigatorias=" + horasObrigatorias + ", limiteFaltas=" + limiteFaltas + ", historicos=" + historicos + ", matriz=" + matriz + ", matriculas=" + matriculas + ", turmas=" + turmas + '}';
     }
 
 }

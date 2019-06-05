@@ -44,7 +44,6 @@
                                   <Component id="btnAddTurma" max="32767" attributes="0"/>
                                   <Component id="btnAddMatricula" alignment="0" max="32767" attributes="0"/>
                                   <Component id="btnAddHistorico" alignment="0" pref="145" max="32767" attributes="0"/>
-                                  <Component id="btnAddProfessor" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -80,10 +79,7 @@
                   <Component id="btnAddHistorico" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnDeletarDisc" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnAddProfessor" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <Component id="btnDeletarDisc" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="57" max="32767" attributes="0"/>
               <Component id="btnMenu" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -156,7 +152,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnAddHistorico">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Adicionar Historico"/>
+        <Property name="text" type="java.lang.String" value="Ver Historico"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddHistoricoActionPerformed"/>
@@ -168,14 +164,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMenuActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnAddProfessor">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Adicionar Professor"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddProfessorActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

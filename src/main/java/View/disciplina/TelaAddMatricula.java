@@ -9,6 +9,7 @@ import View.Menu;
 import controller.ControllerDisciplina;
 import javax.swing.JOptionPane;
 import model.Disciplina;
+import model.Historico;
 import model.Matricula;
 
 /**
@@ -293,10 +294,21 @@ public class TelaAddMatricula extends javax.swing.JFrame {
         double nota1 = Integer.parseInt(txtNota1.getText());
         double nota2 = Integer.parseInt(txtNota2.getText());
         double nota3 = Integer.parseInt(txtNota3.getText());
+        double media = (nota1 + nota2 + nota3) / 3;
 
         int falta1 = Integer.parseInt(txtFalta1.getText());
         int falta2 = Integer.parseInt(txtFalta2.getText());
         int falta3 = Integer.parseInt(txtFalta3.getText());
+        int faltas = falta1 + falta2 + falta3;
+
+        String situacao;
+        if (media >= 6) {
+            situacao = "Aprovado";
+        } else if (media >= 4) {
+            situacao = "Prova Final";
+        } else {
+            situacao = "Reprovado";
+        }
 
         Matricula matricula = new Matricula(ano, semestre, codAluno);
         matricula.getNotas().add(nota1);
@@ -307,10 +319,19 @@ public class TelaAddMatricula extends javax.swing.JFrame {
         matricula.getFaltas().add(falta2);
         matricula.getFaltas().add(falta3);
 
+        Historico historico = new Historico();
+        historico.setAno(ano);
+        historico.setSemestre(semestre);
+        historico.setFaltas(faltas);
+        historico.setMedia(media);
+        historico.setSituacao(situacao);
+
         for (Disciplina d : this.controller.getDisciplinas()) {
             if (d.getCodigoDisciplina() == codDisc) {
                 d.addMatricula(matricula);
+                d.addHistorico(historico);
                 JOptionPane.showMessageDialog(null, "Matricula Cadastrada!");
+                break;
             }
         }
     }//GEN-LAST:event_btnAddMatriculaActionPerformed

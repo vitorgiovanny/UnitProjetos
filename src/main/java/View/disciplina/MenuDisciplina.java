@@ -39,7 +39,6 @@ public class MenuDisciplina extends javax.swing.JFrame {
         btnAddMatricula = new javax.swing.JButton();
         btnAddHistorico = new javax.swing.JButton();
         btnMenu = new javax.swing.JButton();
-        btnAddProfessor = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -90,7 +89,7 @@ public class MenuDisciplina extends javax.swing.JFrame {
             }
         });
 
-        btnAddHistorico.setText("Adicionar Historico");
+        btnAddHistorico.setText("Ver Historico");
         btnAddHistorico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddHistoricoActionPerformed(evt);
@@ -101,13 +100,6 @@ public class MenuDisciplina extends javax.swing.JFrame {
         btnMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMenuActionPerformed(evt);
-            }
-        });
-
-        btnAddProfessor.setText("Adicionar Professor");
-        btnAddProfessor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddProfessorActionPerformed(evt);
             }
         });
 
@@ -133,8 +125,7 @@ public class MenuDisciplina extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(btnAddTurma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(btnAddMatricula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnAddHistorico, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
-                                    .addComponent(btnAddProfessor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(btnAddHistorico, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))))
                         .addGap(0, 168, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -159,9 +150,7 @@ public class MenuDisciplina extends javax.swing.JFrame {
                     .addComponent(btnAtualizacaoDisc)
                     .addComponent(btnAddHistorico))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnDeletarDisc)
-                    .addComponent(btnAddProfessor))
+                .addComponent(btnDeletarDisc)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                 .addComponent(btnMenu)
                 .addContainerGap())
@@ -236,20 +225,11 @@ public class MenuDisciplina extends javax.swing.JFrame {
     private void btnAddHistoricoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddHistoricoActionPerformed
         // TODO add your handling code here:
         dispose();
-        TelaAddHistorico telaAddHistorico = new TelaAddHistorico();
+        TelaVerHistorico telaAddHistorico = new TelaVerHistorico();
         telaAddHistorico.setVisible(true);
         telaAddHistorico.setLocation(300, 100);
         telaAddHistorico.setResizable(false);
     }//GEN-LAST:event_btnAddHistoricoActionPerformed
-
-    private void btnAddProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProfessorActionPerformed
-        // TODO add your handling code here:
-        dispose();
-        TelaAddProfessor telaAddProfessor = new TelaAddProfessor();
-        telaAddProfessor.setVisible(true);
-        telaAddProfessor.setLocation(300, 100);
-        telaAddProfessor.setResizable(false);
-    }//GEN-LAST:event_btnAddProfessorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -290,7 +270,6 @@ public class MenuDisciplina extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddHistorico;
     private javax.swing.JButton btnAddMatricula;
-    private javax.swing.JButton btnAddProfessor;
     private javax.swing.JButton btnAddTurma;
     private javax.swing.JButton btnAtualizacaoDisc;
     private javax.swing.JButton btnCadastroDisc;
