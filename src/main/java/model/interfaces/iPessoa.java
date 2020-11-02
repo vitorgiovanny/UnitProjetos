@@ -1,5 +1,5 @@
 
-package model.magister;
+package model.interfaces;
 
 public interface iPessoa {
     

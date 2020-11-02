@@ -1,10 +1,10 @@
 
-package model.magister;
+package model.interfaces;
 
 import model.Disciplina;
 
 public interface iCurso {
     
     public void NomeCurso(String nNome);
-    public void InsertCodigoCurso(int codigo);
+    public void InsertCodigoCurso();
 }
